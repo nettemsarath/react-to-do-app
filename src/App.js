@@ -6,6 +6,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      data:[],
       number: 0,
       items: [
         'learn react',
@@ -13,6 +14,12 @@ class App extends Component {
       ]
     }
   }
+  componentDidMount() {
+    fetch(url).then(results => {
+        console.log(results);
+        this.state.data.push(results);
+    })
+}
 
   increment = () => {
     this.setState({
